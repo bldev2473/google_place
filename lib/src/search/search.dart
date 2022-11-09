@@ -50,8 +50,7 @@ class Search {
       locationbias,
     );
 
-    var uri = NetworkUtility.createUri(
-        proxyUrl, _authority, _unencodedPathFindPlace, queryParameters);
+    var uri = NetworkUtility.createUri(proxyUrl, _authority, _unencodedPathFindPlace, queryParameters);
     var response = await NetworkUtility.fetchUrl(uri, headers: headers);
     if (response != null) {
       return FindPlaceResponse.parseFindPlaceResult(response);
@@ -126,8 +125,7 @@ class Search {
       pagetoken,
     );
 
-    var uri =
-        Uri.https(_authority, _unencodedPathNearBySearch, queryParameters);
+    var uri = NetworkUtility.createUri(proxyUrl, _authority, _unencodedPathNearBySearch, queryParameters);
     var response = await NetworkUtility.fetchUrl(uri, headers: headers);
     if (response != null) {
       return NearBySearchResponse.parseNearBySearchResult(response);
@@ -207,7 +205,7 @@ class Search {
       pagetoken,
     );
 
-    var uri = Uri.https(_authority, _unencodedPathTextSearch, queryParameters);
+    var uri = NetworkUtility.createUri(proxyUrl, _authority, _unencodedPathTextSearch, queryParameters);
     var response = await NetworkUtility.fetchUrl(uri, headers: headers);
     if (response != null) {
       return TextSearchResponse.parseTextSearchResult(response);
